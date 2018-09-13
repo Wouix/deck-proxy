@@ -12,8 +12,12 @@ abstract class DeckImageFetcher {
         $this->url = $url;
 
         ob_start();
-        $this->xml_document = new DOMDocument();
-        $this->xml_document->loadHTMLFile($url);
+        try {
+            $this->xml_document = new DOMDocument();
+            $this->xml_document->loadHTMLFile($url);
+        } catch(Exception $ex) {
+            throw $ex;
+        }
         ob_clean();
     }
 

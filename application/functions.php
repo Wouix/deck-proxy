@@ -13,3 +13,9 @@ function getElementsByClass(&$parent_node, $tag_name, $class_name) {
 
     return $nodes;
 }
+
+function dd($m) {
+    echo '<pre>';
+    print_r($m);
+    die();
+}
